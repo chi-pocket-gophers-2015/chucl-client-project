@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :create, :edit, :update]
   resources :genre, only: [:index, :show]
   resources :votes, only: [:new, :create, :update]
-  root 'welcome#index'
+  root to: 'welcome#index'
 end
