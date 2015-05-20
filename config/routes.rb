@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :comments, only: [:new, :create, :edit, :update]
-  resources :genre, only: [:index, :show]
+  resources :genres, only: [:index, :show]
   resources :votes, only: [:new, :create, :update]
   root to: 'welcome#index'
 end
