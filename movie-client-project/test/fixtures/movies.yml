@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  runtime: 1
+  synopsis: MyText
+  genre_id: 
+
+two:
+  title: MyString
+  runtime: 1
+  synopsis: MyText
+  genre_id: 

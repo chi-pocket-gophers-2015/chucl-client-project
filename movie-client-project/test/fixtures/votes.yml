@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: false
+  user_id: 
+  comment_id: 
+  comment_type: Comment
+  review_id: 
+  review_type: Review
+
+two:
+  direction: false
+  user_id: 
+  comment_id: 
+  comment_type: Comment
+  review_id: 
+  review_type: Review
