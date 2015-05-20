@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150520191150) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: true do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150520191150) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "genres", force: true do |t|
     t.string   "name"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150520191150) do
     t.datetime "updated_at"
   end
 
-  add_index "movies", ["genre_id"], name: "index_movies_on_genre_id"
+  add_index "movies", ["genre_id"], name: "index_movies_on_genre_id", using: :btree
 
   create_table "reviews", force: true do |t|
     t.text     "body"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20150520191150) do
     t.datetime "updated_at"
   end
 
-  add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 20150520191150) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
-  add_index "votes", ["voteable_id", "voteable_type"], name: "index_votes_on_voteable_id_and_voteable_type"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["voteable_id", "voteable_type"], name: "index_votes_on_voteable_id_and_voteable_type", using: :btree
 
 end
