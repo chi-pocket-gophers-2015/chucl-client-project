@@ -4066,3 +4066,29 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-20 17:03:36
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190305')[0m
   [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190730')
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520191101')[0m
+
+
+Started POST "/users" for 127.0.0.1 at 2015-05-20 19:51:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hliwomKqwxhCUINp3PaP+wFveDnBiMycll8zXin+bRA=", "user"=>{"name"=>"", "username"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered application/_user_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 224ms (Views: 159.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-20 19:51:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-20 19:51:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-20 19:51:53 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-20 19:51:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-20 19:51:53 -0500
