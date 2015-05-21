@@ -1,17 +1,31 @@
-<h1>MOVIE RATING and DATABASE</h1>
-
-<div>
+<div class="front-page-box">
+  <h2>All Genres</h2>
   <ul id="genres-list">
     <%= render @genres %>
   </ul>
 </div>
 
-<div>
-  <ul id="top-movies-list">
-    <%= render @top_movies %>
-  </ul>
+
+<div class="front-page-box">
+  <div class="best-of-box"id="top-movies-container">
+    <h2>Top Reviewed Movies</h2>
+    <ul class="best-of-list" id="a">
+      <%= render @top_movies %>
+    </ul>
+  </div>
+
+  <div class="best-of-box"id="top-reviews-container">
+    <h2>Top Ranked Reviews</h2>
+    <ul class="best-of-list">
+      <%= render @top_reviews %>
+    </ul>
+  </div>
 </div>
 
-<div>
-<p>This is where the top rated reviews will be</p>
-</div>
+
+
+<!-- genres                 -class front page box   -id
+     best ofs               -class front page box   -id best-ofs-box
+       top movies           -class best of box      -id
+       top reviews          -class best of box      -id
+ -->

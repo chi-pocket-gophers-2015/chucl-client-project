@@ -1,0 +1,12 @@
+.movie-stub {
+  background-color: green;
+  margin:3px;
+  border-radius:8px;
+}
+
+
+.review-stub {
+  background-color: brown;
+  margin:3px;
+  border-radius:8px;
+}

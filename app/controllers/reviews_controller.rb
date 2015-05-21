@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.new(review_params)
     #change line below to "current User"
-    @review.user = User.first
+    @review.user = current_user
     if @review.save
       redirect_to movie_path(@movie)
     else

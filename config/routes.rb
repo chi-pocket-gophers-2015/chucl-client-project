@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :movies, only: [:show] do
     resources :reviews, except: [:index] do
       resources :votes, only: [:new, :create, :update]
-        resources :comments, only: [:new, :create, :edit, :update] do
-          resources :comments, only: [:new, :create, :edit, :update]
-        end
+      resources :comments, only: [:new, :create, :edit, :update] do
+        resources :comments, only: [:new, :create, :edit, :update]
+      end
       end
     resources :comments, only: [:new, :create, :edit, :update]
   end
