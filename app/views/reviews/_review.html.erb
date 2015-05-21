@@ -3,4 +3,6 @@
   <p>Score: <%=review.score%> out of 10</p>
   <p><%=review.body%></p>
   <p><%# render review.comments%></p>
+  <p><%=link_to "Edit Review", edit_movie_review_path(review.movie, review) %></p>
+
 </div>
