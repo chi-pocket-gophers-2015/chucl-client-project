@@ -22,7 +22,13 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find(params[:id])
 
+    if @review.update(review_params)
+      redirect_to movie_path(@review.movie)
+    else
+      "You Failed. Make error handling/validations"
+    end
   end
 
   private
