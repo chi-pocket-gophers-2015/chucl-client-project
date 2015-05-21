@@ -1,0 +1,10 @@
+<!-- add conditional statement to either render upvote/ down vote or update vote, depending on whether the current user has voted. -->
+<% form_for vote do |f| %>
+  <%= f.radio_button(:direction, true) %>
+  <%= f.label(:direction_true, "Up Vote")%>
+  <%= f.radio_button(:direction, false) %>
+  <%= f.label(:direction_true, "Down Vote")%>
+  <%= f.submit %>
+<% end %>
+
+
