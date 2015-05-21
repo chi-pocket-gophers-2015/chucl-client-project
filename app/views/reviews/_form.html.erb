@@ -1,5 +1,5 @@
 <%= form_for [@movie, @review] do |f|%>
-
+<%= render partial: 'application/errors', locals: {object: @review} %>
 <p><%=f.label :score%></p>
 <p><%=f.number_field :score%></p>
 

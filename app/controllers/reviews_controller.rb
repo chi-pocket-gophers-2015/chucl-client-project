@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to movie_path(@movie)
     else
-      "You Failed. Make error handling/validations"
+      render 'new'
     end
   end
 
@@ -27,11 +27,11 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-
+    @movie = @review.movie
     if @review.update(review_params)
       redirect_to movie_path(@review.movie)
     else
-      "You Failed. Make error handling/validations"
+      render 'edit'
     end
   end
 
