@@ -1,9 +1,9 @@
 <%= form_for [@movie, @review] do |f|%>
 
-<p><%=f.lable :score%></p>
+<p><%=f.label :score%></p>
 <p><%=f.number_field :score%></p>
 
-<p><%=f.lable :review_body%></p>
+<p><%=f.label :review_body%></p>
 <p><%=f.text_area :body%></p>
 
 <p><%=f.submit%></p>
