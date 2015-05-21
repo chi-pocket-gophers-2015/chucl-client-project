@@ -4,4 +4,6 @@ class Review < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable
 
+  validates :movie, :user, :body, :score, presence: true
+  validates_numericality_of :score, only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10
 end
