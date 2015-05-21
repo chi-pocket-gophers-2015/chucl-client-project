@@ -4,10 +4,12 @@
   <p>You are replying to:</p>
   <% if @post %>
     <%= @post.body %>
+    <%= render partial: "comment", locals: {movie: @movie, review: @review, post: @post, comment: @comment} %>
    <% elsif @review %>
     <%= @review.body %>
+    <%= render partial: "comment", locals: {movie: @movie, review: @review, post: nil, comment: @comment} %>
   <% elsif @movie %>
     <%= @movie.title %>
+    <%= render partial: "comment", locals: {movie: @movie, review: nil, post: nil, comment: @comment} %>
   <% end %>
 </div>
-

@@ -13,10 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p movie = Movie.find_by_id(params[:movie_id])
-    p @post = Comment.find_by_id(params[:comment_id])
-    p @review = Review.find_by_id(params[:review_id])
-    p @movie = Movie.find_by_id(params[:movie_id])
+    movie = Movie.find_by_id(params[:movie_id])
+    @post = Comment.find_by_id(params[:comment_id])
+    @review = Review.find_by_id(params[:review_id])
+    @movie = Movie.find_by_id(params[:movie_id])
     if @post
       @comment = @post.comments.create(comment_params)
     elsif @review
