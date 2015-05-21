@@ -7,6 +7,10 @@ module Voteable
   end
 
   def set_points
-    self.update_attributes(points: calc_points)
+    if self.votes.count == nil
+      self.update_attributes(points: 0)
+    else
+      self.update_attributes(points: calc_points)
+    end
   end
 end
