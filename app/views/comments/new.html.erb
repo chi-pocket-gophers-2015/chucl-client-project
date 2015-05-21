@@ -1,4 +1,14 @@
 <h2>Add a comment</h2>
+<div>
+  <p>You are replying to:</p>
+  <% if @post %>
+    <%= @post.body %>
+   <% elsif @review %>
+    <%= @review.body %>
+  <% elsif @movie %>
+    <%= @movie.title %>
+  <% end %>
+</div>
 
 <table>
   <%= form_for @comment do |f| %>
