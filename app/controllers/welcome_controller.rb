@@ -8,5 +8,4 @@ class WelcomeController < ApplicationController
 
 
 
-
 end
