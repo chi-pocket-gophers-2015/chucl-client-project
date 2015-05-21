@@ -2,8 +2,8 @@ class WelcomeController < ApplicationController
 
   def index
     @genres = Genre.all
-
-    # @reviews = Review.order{order by review.votes}
+    @reviews = Review.all
+    @movies = Movie.all
   end
 
 
