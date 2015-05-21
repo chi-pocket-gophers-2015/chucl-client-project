@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 describe Review do
   let!(:user) { User.new(name: "Boys", username: "Boys", password: "Boys") }
@@ -9,5 +9,19 @@ describe Review do
     expect(review.valid?).to eq(true)
   end
 
+  it "Is invalid when missing a body" do
+    review.body = nil
+    expect(review.valid?).to eq(false)
+  end
+
+  it "Is invalid when score is less than 0" do
+    review.score = -1
+    expect(review.valid?).to eq(false)
+  end
+
+  it "Is invalid when score is greater than 10" do
+    review.score = 11
+    expect(review.valid?).to eq(false)
+  end
 
 end
