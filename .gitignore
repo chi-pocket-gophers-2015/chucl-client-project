@@ -36,4 +36,5 @@ build/
 .rvmrc
 
 /log/
-
+/coverage/
+.DS_Store
