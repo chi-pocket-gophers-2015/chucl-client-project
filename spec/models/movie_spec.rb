@@ -1,7 +1,5 @@
 describe "movies#show" do
-    it "dummy test" do
-      expect(true).to eq(true)
-    end
+
     # it "Gets the page" do
     #   @movie = Movie.first
     #   get movie_path(@movie)

@@ -1,0 +1,7 @@
+<h2>Log in</h2>
+
+<table>
+  <%= form_for :session, url: {action: "create"} do |f| %>
+    <%= render partial: 'user_form', locals: {f: f} %>
+  <% end %>
+</table>
