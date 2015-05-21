@@ -19,12 +19,17 @@ class CommentsController < ApplicationController
     @movie = Movie.find_by_id(params[:movie_id])
     if @post
       @comment = @post.comments.create(comment_params)
+      @comment.update(user_id: current_user.id)
     elsif @review
       @comment = @review.comments.create(comment_params)
+      @comment.update(user_id: current_user.id)
     elsif @movie
       @comment = @movie.comments.create(comment_params)
+      @comment.update(user_id: current_user.id)
     end
+    # redirect somewhere else
     redirect_to movie_path(movie)
+    # need to do conditional for failing comments
   end
 
   def edit
