@@ -6,6 +6,7 @@ class Review < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable
 
+  after_create :set_movie_aggregate_score
   after_save :set_movie_aggregate_score
 
   validates :movie, :user, :body, :score, presence: true

@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <nav>
   <ul>
     <li>
@@ -22,12 +23,12 @@
     <% end %>
     <% if current_user != nil %>
       <li>
-        <%= link_to("Log Out", session_path, {action: 'delete'}) %>
       </li>
     <% end %>
   </ul>
 </nav>
-<%= yield %>
-
+<div id="main-content">
+  <%= yield %>
+</div>
 </body>
 </html>
