@@ -3961,3 +3961,108 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-20 17:03:36 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-20 17:03:36 -0500
+  [1m[36m (125.0ms)[0m  [1mDROP DATABASE IF EXISTS "db/chucl_development"[0m
+  [1m[35m (250.8ms)[0m  CREATE DATABASE "db/chucl_development" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "body" text, "user_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_comments_on_commentable_id_and_commentable_type" ON "comments" USING btree ("commentable_id", "commentable_type")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_comments_on_user_id" ON "comments" USING btree ("user_id")
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "genres" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "runtime" integer, "synopsis" text, "genre_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_movies_on_genre_id" ON "movies" USING btree ("genre_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "body" text, "score" integer, "movie_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_reviews_on_movie_id" ON "reviews" USING btree ("movie_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_reviews_on_user_id" ON "reviews" USING btree ("user_id")
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "direction" boolean, "user_id" integer, "voteable_id" integer, "voteable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_votes_on_user_id" ON "votes" USING btree ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_votes_on_voteable_id_and_voteable_type" ON "votes" USING btree ("voteable_id", "voteable_type")
+  [1m[36m (16.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (17.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520191150')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190133')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190148')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190305')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190730')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520191101')[0m
+  [1m[35m (116.2ms)[0m  DROP DATABASE IF EXISTS "db/chucl_test"
+  [1m[36m (254.3ms)[0m  [1mCREATE DATABASE "db/chucl_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "body" text, "user_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_comments_on_commentable_id_and_commentable_type" ON "comments" USING btree ("commentable_id", "commentable_type")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_comments_on_user_id" ON "comments" USING btree ("user_id")[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "genres" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "runtime" integer, "synopsis" text, "genre_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_movies_on_genre_id" ON "movies" USING btree ("genre_id")
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "reviews" ("id" serial primary key, "body" text, "score" integer, "movie_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_reviews_on_movie_id" ON "reviews" USING btree ("movie_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_reviews_on_user_id" ON "reviews" USING btree ("user_id")[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "direction" boolean, "user_id" integer, "voteable_id" integer, "voteable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_votes_on_user_id" ON "votes" USING btree ("user_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_votes_on_voteable_id_and_voteable_type" ON "votes" USING btree ("voteable_id", "voteable_type")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520191150')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190133')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190148')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190305')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190730')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520191101')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "genres" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-05-20 22:59:33.096899"], ["name", "Comedy"], ["updated_at", "2015-05-20 22:59:33.096899"]]
+  [1m[35m (15.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (31.1ms)[0m  INSERT INTO "movies" ("created_at", "genre_id", "runtime", "synopsis", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-05-20 22:59:33.198020"], ["genre_id", 1], ["runtime", 105], ["synopsis", "Three unemployed parapsychology professors set up shop as a unique ghost removal service."], ["title", "Ghostbusters"], ["updated_at", "2015-05-20 22:59:33.198020"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-05-20 22:59:33.313925"], ["name", "Bobbo"], ["password_digest", "$2a$10$SQ0vyCwLIFIZsMFl46MrVeyVUdHRcaB76HkiPT1SbV9lLZga4T1Ue"], ["updated_at", "2015-05-20 22:59:33.313925"], ["username", "Bob"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "reviews" ("body", "created_at", "movie_id", "score", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "BEST MOVIE EVAAAAAAR!!!!! I LOVE RICK MORANIS"], ["created_at", "2015-05-20 22:59:33.330020"], ["movie_id", 1], ["score", 10], ["updated_at", "2015-05-20 22:59:33.330020"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "comments" ("body", "commentable_id", "commentable_type", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "don't cross the streams!"], ["commentable_id", 1], ["commentable_type", "Review"], ["created_at", "2015-05-20 22:59:33.345643"], ["updated_at", "2015-05-20 22:59:33.345643"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("body", "commentable_id", "commentable_type", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "i love this movie. it's so cool."], ["commentable_id", 1], ["commentable_type", "Movie"], ["created_at", "2015-05-20 22:59:33.350226"], ["updated_at", "2015-05-20 22:59:33.350226"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("body", "commentable_id", "commentable_type", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "i agree. this movie is so cool. and i'm commeting on my own comment. i agree so much with myself"], ["commentable_id", 2], ["commentable_type", "Comment"], ["created_at", "2015-05-20 22:59:33.353101"], ["updated_at", "2015-05-20 22:59:33.353101"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "votes" ("created_at", "direction", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-05-20 22:59:33.365156"], ["direction", "t"], ["updated_at", "2015-05-20 22:59:33.365156"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Comment"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "votes" ("created_at", "direction", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-05-20 22:59:33.370425"], ["direction", "t"], ["updated_at", "2015-05-20 22:59:33.370425"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Review"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (121.4ms)[0m  [1mDROP DATABASE IF EXISTS "db/chucl_test"[0m
+  [1m[35m (253.2ms)[0m  CREATE DATABASE "db/chucl_test" ENCODING = 'unicode'
+  [1m[36m (115.4ms)[0m  [1mDROP DATABASE IF EXISTS "db/chucl_test"[0m
+  [1m[35m (260.7ms)[0m  CREATE DATABASE "db/chucl_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "body" text, "user_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_comments_on_commentable_id_and_commentable_type" ON "comments" USING btree ("commentable_id", "commentable_type")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_comments_on_user_id" ON "comments" USING btree ("user_id")
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "genres" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "runtime" integer, "synopsis" text, "genre_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_movies_on_genre_id" ON "movies" USING btree ("genre_id")[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "reviews" ("id" serial primary key, "body" text, "score" integer, "movie_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_reviews_on_movie_id" ON "reviews" USING btree ("movie_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_reviews_on_user_id" ON "reviews" USING btree ("user_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "direction" boolean, "user_id" integer, "voteable_id" integer, "voteable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_votes_on_user_id" ON "votes" USING btree ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_votes_on_voteable_id_and_voteable_type" ON "votes" USING btree ("voteable_id", "voteable_type")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520191150')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190133')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190148')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520190305')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150520190730')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150520191101')[0m
