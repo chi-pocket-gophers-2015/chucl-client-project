@@ -36,6 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 # end
 
+group :test do
+  gem 'shoulda-matchers'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,12 +1,18 @@
-describe "movies#show" do
+require 'rails_helper'
 
-    # it "Gets the page" do
-    #   @movie = Movie.first
-    #   get movie_path(@movie)
-    #   expect(response.status).to be(200)
-    # end
+describe Movie do
+  # let!(:genre) { Genre.new(name: "Drama")}
+  # let!(:movie) { Movie.new(title: "Jaws", runtime: 90, synopsis: "It's about a shark", genre: genre) }
 
-    # it "Assigns @movie correctly" do
-    #   get movie_path(@movie)
-    # end
+
+  # it "is valid with valid inputs" do
+  #   puts movie
+  #   expect(movie.valid?).to eq(true)
+  # end
+
+  it { should validate_presence_of(:title)}
+  it { should validate_presence_of(:runtime)}
+  it { should validate_presence_of(:synopsis)}
+  it { should validate_presence_of(:genre)}
+
   end
