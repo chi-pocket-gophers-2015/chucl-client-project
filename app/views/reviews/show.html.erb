@@ -1,0 +1,11 @@
+<div id="review_container">
+  <h3>Review for: <%=@review.movie.title%></h3>
+  <p>By: <%=@review.user.username%></p>
+  <p>Score: <%=@review.score%> out of 10</p>
+  <p><%=@review.body%></p>
+
+  <p><%=link_to "Edit Review", edit_movie_review_path(@review.movie, @review) %> | <%= link_to 'Delete Review', movie_review_path(@review.movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <hr>
+  <h4>Comments:</h4>
+  <div id="comments_container"><%# render review.comments%></div>
+</div>
