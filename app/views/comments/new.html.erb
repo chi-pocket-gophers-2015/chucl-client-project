@@ -1,4 +1,5 @@
 <h2>Add a comment</h2>
+
 <div>
   <p>You are replying to:</p>
   <% if @post %>
@@ -10,15 +11,3 @@
   <% end %>
 </div>
 
-<table>
-  <%= form_for @comment do |f| %>
-    <tr>
-      <td><%= f.label "Comment" %></td>
-      <td><%= f.text_area :body %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit %></td>
-    </tr>
-  <% end %>
-</table>
