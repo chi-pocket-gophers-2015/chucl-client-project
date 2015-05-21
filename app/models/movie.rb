@@ -5,6 +5,9 @@ class Movie < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :commenters, through: :comments, source: :user
 
+  validates :title, :runtime, :synopsis, :genre, presence: true
+
+
   def calc_aggregate_score
     ((self.reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
   end

@@ -12,7 +12,7 @@ class VotesController < ApplicationController
     movie = Movie.find_by_id(params[:movie_id])
     @review = Review.find_by_id(params[:review_id])
     vote = @review.votes.create(vote_params)
-    # vote.update_attributes(user_id: current_user.id)
+    vote.update_attributes(user_id: current_user.id)
 
     redirect_to movie_path(movie)
   end

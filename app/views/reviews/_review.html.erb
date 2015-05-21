@@ -1,11 +1,13 @@
 <div class="review-stub">
   <p>By: <%=review.user.username%></p>
-  <p>Score: <%=review.score%> out of 10</p>
-  <p><%=truncate(review.body)%></p>
-  <p><%=link_to "View Comments", movie_review_path(review.movie, review) %></p>
-  <p><%= render partial: 'votes/vote', locals: {movie: @movie, review: review, vote: @vote} %></p>
-  <p>Score: <%=review.score%>/10</p>
-
   <p><%=link_to truncate(review.body), movie_review_path(review.movie, review) %></p>
   <p>Review score: <%= review.points %></p>
+  <p><%=link_to "View Comments", movie_review_path(review.movie, review) %></p>
+  <% if logged_in? %>
+    <p>Was this review helpful?</p>
+    <p><%= render partial: 'votes/vote', locals: {movie: review.movie, review: review, vote: Vote.new} %></p>
+  <% end %>
+  <p>Helpful Score: <%=review.score%>/10</p>
+
+
 </div>

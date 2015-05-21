@@ -1,10 +1,10 @@
 <!-- add conditional statement to either render upvote/ down vote or update vote, depending on whether the current user has voted. -->
 <%= form_for [movie, review, vote] do |f| %>
   <%= f.radio_button(:direction, true) %>
-  <%= f.label(:direction_true, "Up Vote")%>
+  <%= f.label(:direction_true, "Yes")%><br>
   <%= f.radio_button(:direction, false) %>
-  <%= f.label(:direction_true, "Down Vote")%>
-  <%= f.submit %>
+  <%= f.label(:direction_true, "No")%><br>
+  <%= f.submit "Submit"%>
 <% end %>
 
 
