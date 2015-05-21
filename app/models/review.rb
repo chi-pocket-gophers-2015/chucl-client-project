@@ -1,4 +1,6 @@
 class Review < ActiveRecord::Base
+  include Voteable
+
   belongs_to :movie
   belongs_to :user
   has_many :comments, as: :commentable
@@ -14,4 +16,6 @@ class Review < ActiveRecord::Base
   def set_movie_aggregate_score
     self.movie.set_aggregate_score
   end
+
+
 end
