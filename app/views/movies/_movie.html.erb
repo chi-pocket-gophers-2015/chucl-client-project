@@ -1,9 +1,6 @@
 <!-- THIS IS THE MOVIE STUB PARTIAL -->
 
-<li>
-  <div class="movie-stub">
-    <div><%=movie.aggregate_score%>%</div>
-    <div><a href="<%=movie_path(movie)%>"><%= movie.title %></a></div>
-  </div>
+<li class="movie-stub">
+  <div><%=movie.aggregate_score%>% <a href="<%=movie_path(movie)%>"><%= movie.title %></a></div>
 </li>
 

@@ -1,26 +1,31 @@
-<div class="front-page-box">
-  <h2>All Genres</h2>
-  <ul id="genres-list">
-    <%= render @genres %>
-  </ul>
-</div>
 
-
-<div class="front-page-box">
-  <div class="best-of-box"id="top-movies-container">
-    <h2>Top Reviewed Movies</h2>
-    <ul class="best-of-list" id="a">
-      <%= render @top_movies %>
-    </ul>
+  <div class="row">
+    <div class="col-md-offset-1">
+    <div class="genre-list col-md-4">
+      <h2 id="genre-header">All Genres</h2>
+      <ul id="genres-list">
+        <%= render @genres %>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div class="best-of-box" id="top-movies-container">
+        <h2>Top Reviewed Movies</h2>
+        <ul class="best-of-list" id="a">
+          <%= render @top_movies %>
+        </ul>
+      </div>
+    </div>
+    </div>
   </div>
 
-  <div class="best-of-box"id="top-reviews-container">
-    <h2>Top Ranked Reviews</h2>
-    <ul class="best-of-list">
-      <%= render @top_reviews %>
-    </ul>
+  <div class="row">
+    <div class=" col-md-10 col-md-offset-1 best-of-box" id="top-reviews-container">
+      <h2>Top Ranked Reviews</h2>
+      <ul class="best-of-list">
+        <%= render @top_reviews %>
+      </ul>
+    </div>
   </div>
-</div>
 
 
 
