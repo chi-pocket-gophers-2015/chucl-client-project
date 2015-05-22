@@ -11,20 +11,24 @@ class User < ActiveRecord::Base
 
 
 
-def calc_trusted_status
+  def calc_trusted_status
     reviews = self.reload && self.reviews
-    # if reviews.count > 0
-    # ((reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
-    # else
-    #   97
-    # end
+    if reviews.count > 0
+    ((reviews.select {|review| review.points >=0}.count.to_f/self.reviews.count.to_f)*100).to_i >= 60
+    else
+      false
+    end
 
   end
 
-  def set_aggregate_score
-    self.update_attributes(aggregate_score: calc_aggregate_score)
+  def set_trusted_status
+    self.update_attributes(trusted: calc_trusted_status)
   end
 
 
 
 end
+
+
+
+# trusted if you have over 60% of your reviews in the positive points
