@@ -79,4 +79,11 @@ ul {
   /*clear: left;
 }*/
 
+.genre-reviews {
+  float: right;
+  min-width: 600px;
+}
 
+.genre-movies {
+  float: left;
+}

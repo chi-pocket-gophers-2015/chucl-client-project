@@ -1,6 +1,7 @@
 <div class="review-stub">
   <p>By: <%=review.user.username%></p>
-  <p><%=link_to truncate(review.body), movie_review_path(review.movie, review) %></p>
+  <p>Movie: <%=link_to review.movie.title, movie_path(review.movie) %></p>
+  <p><%=link_to review.body, movie_review_path(review.movie, review) %></p>
   <p>Review score: <%= review.points %></p>
   <p><%=link_to "View Comments", movie_review_path(review.movie, review) %></p>
   <% if logged_in? %>
