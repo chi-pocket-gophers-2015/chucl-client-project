@@ -10,6 +10,7 @@
   <%=render @movie.comments%>
 </div>
 <h3>Reviews: </h3>
+<p><%= link_to "New Review",  new_review_path(movie_id: @movie) %></p>
 <div id="review_stubs">
   <%=render @movie.reviews%>
 </div>
