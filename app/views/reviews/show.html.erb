@@ -4,8 +4,13 @@
   <p>Score: <%=@review.score%> out of 10</p>
   <p><%=@review.body%></p>
 
-  <p><%=link_to "Edit Review", edit_movie_review_path(@review.movie, @review) %> | <%= link_to 'Delete Review', movie_review_path(@review.movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p>
+    <%=link_to "Edit Review", edit_movie_review_path(@review.movie, @review) %>
+    |
+    <%= link_to 'Delete Review', movie_review_path(@review.movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
   <hr>
   <h4>Comments:</h4>
-  <div id="comments_container"><%# render review.comments%></div>
+  <p><%= link_to "New Comment",  new_comment_path(movie_id: @review.movie, review_id: @review) %></p>
+  <div id="comments_container"><%= render @review.comments%></div>
 </div>
