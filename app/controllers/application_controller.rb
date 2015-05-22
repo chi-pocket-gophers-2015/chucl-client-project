@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def is_author?(author)
+    current_user.id == author
+  end
+  helper_method :is_author?
+
   def logged_in?
     !!current_user
   end
