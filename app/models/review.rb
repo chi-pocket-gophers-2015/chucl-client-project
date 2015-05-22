@@ -8,6 +8,7 @@ class Review < ActiveRecord::Base
 
   after_create :set_movie_aggregate_score
   after_save :set_movie_aggregate_score
+  after_update :set_movie_aggregate_score
 
   validates :movie, :user, :body, :score, presence: true
   validates_numericality_of :score, only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10

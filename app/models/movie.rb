@@ -8,8 +8,14 @@ class Movie < ActiveRecord::Base
   validates :title, :runtime, :synopsis, :genre, presence: true
 
 
+
   def calc_aggregate_score
-    ((self.reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
+    reviews = self.reviews
+    if reviews.count > 0
+    ((reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
+    else
+      0
+    end
   end
 
   def set_aggregate_score
