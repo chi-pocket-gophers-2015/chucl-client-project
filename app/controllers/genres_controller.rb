@@ -3,6 +3,7 @@ class GenresController < ApplicationController
 
   def show
     @reviews = @genre.reviews.order(points: :desc).limit(10)
+    @top_genre_movies = @genre.movies.order(aggregate_score: :desc).limit(5)
   end
 
   private
