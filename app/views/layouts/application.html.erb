@@ -3,30 +3,35 @@
 <head>
   <title>Team Chucl</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%# javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li>
-      <%= link_to("Home", root_path) %>
-    </li>
-    <% if current_user == nil %>
+<div class="container">
+  <div class="page-header">
+    <ul class="nav nav-pills pull-right">
       <li>
-        <%= link_to("Log In", new_session_path) %>
+        <%= link_to("Home", root_path) %>
       </li>
+      <% if logged_in? %>
+      <li>
+        <%= link_to('Log Out', session_path(current_user.id), action: :destroy, method: :delete) %>
+      </li>
+      <% else %>
       <li>
         <%= link_to("Sign Up", new_user_path) %>
       </li>
-    <% end %>
-    <% if current_user != nil %>
       <li>
+        <%= link_to("Log In", new_session_path) %>
       </li>
-    <% end %>
-  </ul>
-</nav>
+      <% end %>
+    </ul>
+    <h1>The Best Movie Database</h1>
+  </div>
+</div>
 <div id="main-content">
   <%= yield %>
 </div>

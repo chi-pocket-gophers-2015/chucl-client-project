@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def show
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
   def new
   end
@@ -14,8 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+
   end
 
 end
