@@ -14,7 +14,12 @@ class User < ActiveRecord::Base
   def calc_trusted_status
     reviews = self.reload && self.reviews
     if reviews.count > 0
-    ((reviews.select {|review| review.points >=0}.count.to_f/self.reviews.count.to_f)*100).to_i >= 60
+    ((reviews.select do |review|
+      if review.votes.count > 0
+        review.points >=0
+      end
+    end.count.to_f/self.reviews.count.to_f)*100).to_i >= 60
+
     else
       false
     end

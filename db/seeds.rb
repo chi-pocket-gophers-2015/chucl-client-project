@@ -54,7 +54,7 @@ comments = Comment.all
 end
 boolean = [true,false]
 2000.times do
-  reviews.sample.votes.create(direction: boolean.sample, user:users.sample)
+  reviews.sample.votes.create!(direction: boolean.sample, user:users.sample)
 end
 
 
