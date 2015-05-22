@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def is_author(author_id)
-    current_user.id == author_id
+    if current_user
+      current_user.id == author_id
+    end
   end
   helper_method :is_author
 
