@@ -7,7 +7,7 @@
   <p><%=@review.body%></p>
 
   <p>
-    <% if @review.user.id = nil %>
+    <% if @review.user.id != nil %>
     <% if is_author(@review.user.id) %>
       <%=link_to "Edit Review", edit_movie_review_path(@review.movie, @review) %>
       |
