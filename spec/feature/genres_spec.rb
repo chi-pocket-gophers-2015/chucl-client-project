@@ -11,13 +11,24 @@ feature 'Genre Page' do
     expect(page).to have_content 'The Sound of Music'
   end
 
-  scenario 'see a review of that ' do
-    visit root_path
-    expect(page).to have_content 'The Sound of Music'
+  scenario 'see a review of that movie' do
+    visit genre_path(genre)
+    expect(page).to have_content 'BEST MOVIE EVAAAAAAR'
   end
 
-  #  scenario 'see a list of top movies' do
-  #   visit root_path
-  #   expect(page).to have_content 'BEST MOVIE EVAAAAAAR'
-  # end
+  scenario "Link for movie will go to the correct page" do
+    visit genre_path(genre)
+    within('.genre-movies') do
+      click_link('The Sound of Music')
+    end
+    expect(page).to have_content('Runtime: 174')
+  end
+
+  scenario "Link for review will go to the review" do
+    visit genre_path(genre)
+    within('.genre-reviews') do
+      click_link('BEST MOVIE EVAAAAAAR!!!!! I LOVE RICK MORANIS')
+    end
+    expect(page).to have_content('Edit Review')
+  end
 end
