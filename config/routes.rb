@@ -9,9 +9,10 @@ Rails.application.routes.draw do
       end
     resources :comments, only: [:new, :create, :edit, :update]
   end
-  resources :sessions, only: [:new, :create, :destroy, :show]
+  resource :session, only: [:new, :create, :destroy]
   resources :comments, only: [:new, :create, :edit, :update]
   resources :genres, only: [:index, :show]
+
   # resources :votes, only: [:new, :create, :update]
   root to: 'welcome#index'
 end

@@ -18,7 +18,7 @@
       </li>
       <% if logged_in? %>
       <li>
-        <%= link_to('Log Out', session_path(current_user.id), action: :destroy, method: :delete) %>
+        <%= button_to('Log Out', session_path, method: :delete) %>
       </li>
       <% else %>
       <li>
