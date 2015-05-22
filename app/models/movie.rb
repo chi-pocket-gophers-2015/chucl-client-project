@@ -14,7 +14,7 @@ class Movie < ActiveRecord::Base
     if reviews.count > 0
     ((reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
     else
-      0
+      97
     end
   end
 
