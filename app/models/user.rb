@@ -7,4 +7,28 @@ class User < ActiveRecord::Base
   validates :name, :username, presence: true
 
   has_secure_password
+
+
+
+
+  def calc_trusted_status
+    reviews = self.reload && self.reviews
+    if reviews.count > 0
+    ((reviews.select {|review| review.points >=0}.count.to_f/self.reviews.count.to_f)*100).to_i >= 60
+    else
+      false
+    end
+
+  end
+
+  def set_trusted_status
+    self.update_attributes(trusted: calc_trusted_status)
+  end
+
+
+
 end
+
+
+
+# trusted if you have over 60% of your reviews in the positive points

@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy, :delete]
+
   def show
     @review = Review.find(params[:id])
     # puts @review

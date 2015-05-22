@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_action :authenticate_user, only: [:new, :create, :edit, :update]
+
   def new
     @post = Comment.find_by_id(params[:comment_id])
     @review = Review.find_by_id(params[:review_id])
