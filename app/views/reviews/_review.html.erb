@@ -1,7 +1,7 @@
 <div class="review-stub">
 
   <h3><%=link_to "A review", movie_review_path(review.movie, review) %> for: <%=link_to review.movie.title, movie_path(review.movie) %></h3>
-  <p><%= review.body %> | By: <%=review.user.username%></p>
+  <p><%= review.body %> | By: <%= link_to(review.user.username, user_path(review.user))%></p>
   <p>Review score: <%=review.score%>/10</p>
 
 
