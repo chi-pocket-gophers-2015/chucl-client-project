@@ -1,12 +1,7 @@
-<table>
-  <%= form_for [movie, review, post, comment] do |f| %>
-    <tr>
-      <td><%= f.label "Comment" %></td>
-      <td><%= f.text_area :body %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="comment">
+  <p class="comment_body"><%=comment.body%></p>
+  <h6><%=link_to "#by: {comment.user}" user_path(comment.user)%> | <%# link_to "reply", parent_child_path(@parent, @child) %></h6>
+  <div class="nested">
+    <%= render comment.comments %>
+  </div>
+</div>
