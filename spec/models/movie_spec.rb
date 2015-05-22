@@ -35,12 +35,7 @@ describe Movie do
           5.times do |i|
             movie.reviews << Review.new(user: user, body: "negative #{i}", score: 0)
           end
-
           movie.save
-          puts "Reviews count: #{movie.reviews.count}"
-          puts movie.reviews.pluck(:score)
-          p "Calculate aggregate: #{movie.set_aggregate_score}"
-          # movie.set_aggregate_score
           expect(movie.aggregate_score).to eq(50)
 
         end
