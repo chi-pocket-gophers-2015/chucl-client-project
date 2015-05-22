@@ -15,8 +15,12 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :create, :edit, :update] do
     resources :comments, only: [:new, :create, :edit, :update]
   end
+
   resources :genres, only: [:index, :show]
 
+  resources :reviews, except: [:index] do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
   # resources :votes, only: [:new, :create, :update]
   root to: 'welcome#index'
 end
