@@ -4,6 +4,9 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    # puts @review
+    # puts params[:id]
+    puts "helllo?????????????"
   end
 
   def new

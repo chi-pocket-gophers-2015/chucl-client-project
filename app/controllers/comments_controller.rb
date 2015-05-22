@@ -25,12 +25,14 @@ class CommentsController < ApplicationController
     elsif @review
       @comment = @review.comments.create(comment_params)
       @comment.update(user_id: current_user.id)
+      # redirect_to review_path(@review)
     elsif @movie
       @comment = @movie.comments.create(comment_params)
       @comment.update(user_id: current_user.id)
+      # redirect_to movie_path(@movie.id)
     end
     # redirect somewhere else
-    redirect_to movie_path(@movie.id)
+    redirect_to determine_return_route
     # need to do conditional for failing comments
   end
 
@@ -43,5 +45,15 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:body)
+  end
+
+  def determine_return_route
+    # if @review
+    #   return review_path(@review)
+    if @movie
+      return movie_path(@movie)
+    else
+      return root_path
+    end
   end
 end

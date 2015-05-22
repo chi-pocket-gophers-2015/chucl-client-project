@@ -9,6 +9,8 @@
     <p><%= render partial: 'votes/vote', locals: {movie: review.movie, review: review, vote: Vote.new} %></p>
   <% end %>
   <p>Helpful Score: <%=review.score%>/10</p>
-
+  <h4>Comments:</h4>
+  <p><%= link_to "New Comment",  new_comment_path(movie_id: @movie, review_id: review) %></p>
+  <div id="comments_container"><%= render review.comments%></div>
 
 </div>
