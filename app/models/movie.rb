@@ -10,11 +10,11 @@ class Movie < ActiveRecord::Base
 
 
   def calc_aggregate_score
-    reviews = self.reviews
+    reviews = self.reload && self.reviews
     if reviews.count > 0
     ((reviews.select {|review| review.is_positive?}.count.to_f/self.reviews.count.to_f)*100).to_i
     else
-      0
+      97
     end
   end
 

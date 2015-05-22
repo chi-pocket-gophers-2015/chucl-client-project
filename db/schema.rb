@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521141839) do
+ActiveRecord::Schema.define(version: 20150522185148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150521141839) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "genres", force: true do |t|
-    t.string   "name"
+    t.string   "name",       default: "Other"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(version: 20150521141839) do
     t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "aggregate_score"
+    t.integer  "aggregate_score", default: 0
+    t.integer  "year"
   end
 
   add_index "movies", ["genre_id"], name: "index_movies_on_genre_id", using: :btree
