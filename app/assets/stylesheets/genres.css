@@ -1,3 +1,33 @@
+ul {
+  list-style:none;
+}
+
+
+.movie-stub {
+  padding: 5px;
+  margin: 12px;
+}
+
+.review-stub {
+  margin-top: 10px;
+  border-bottom: dotted;
+}
+
+#genre-header{
+  font-size: 30px;
+}
+
+#genres-list {
+  font-size: 20px;
+}
+
+.best-of-list {
+  font-size: 18px;
+}
+
+
+
+
 /*.best-of-container {
   list-style: none;
   background-color: pink;
@@ -20,10 +50,8 @@
 */
 /*I DON'T KNOW WHAT TO NAME THIS FILE OR EVEN HOW TO GROUP CSS SHIT TOGETHER
   INTO FILES DESPITE THEM APPLYING TO SHIT ACROSS OBJECTS,VIEWS,EVERY-FUCKING-THING*/
-ul {
-  list-style:none;
-}
 
+/*
 .front-page-box {
   background-color:gray;
   border-radius:8px;
@@ -31,18 +59,31 @@ ul {
   display:inline-block;
   height: 100%;
   width: 45%;
+}*/
+
+.genre-list {
+  background-color: #FFFFE0;
+  padding:10px;
+  margin:8px;
 }
 
 .best-of-box {
-  background-color:pink;
-  border-radius:8px;
-  padding:3px;
-  margin:5px;
+  background-color: #C8C8C8 ;
+/*  border-radius:8px;*/
+  padding:10px;
+  margin:8px;
 }
 
-.best_ofs-box {
-  display: inline-block;
-  /*clear: left;*/
+/*.best_ofs-box {
+  display: inline-block;*/
+  /*clear: left;
+}*/
+
+.genre-reviews {
+  float: right;
+  min-width: 600px;
 }
 
-
+.genre-movies {
+  float: left;
+}

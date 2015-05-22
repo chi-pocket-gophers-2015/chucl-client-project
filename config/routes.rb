@@ -4,15 +4,23 @@ Rails.application.routes.draw do
     resources :reviews, except: [:index] do
       resources :votes, only: [:new, :create, :update]
       resources :comments, only: [:new, :create, :edit, :update] do
-        resources :comments, only: [:new, :create, :edit, :update]
+
       end
       end
-    resources :comments, only: [:new, :create, :edit, :update]
+    resources :comments, only: [:new, :create, :edit, :update] do
+      resources :comments, only: [:new, :create, :edit, :update]
+    end
   end
   resource :session, only: [:new, :create, :destroy]
-  resources :comments, only: [:new, :create, :edit, :update]
+  resources :comments, only: [:new, :create, :edit, :update] do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
+
   resources :genres, only: [:index, :show]
 
+  resources :reviews, except: [:index] do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
   # resources :votes, only: [:new, :create, :update]
   root to: 'welcome#index'
 end
