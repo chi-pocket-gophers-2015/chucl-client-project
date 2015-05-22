@@ -5,6 +5,7 @@
   <p><%=@movie.synopsis%></p>
 </div>
 <h3>Discuss this Movie: </h3>
+<p><%= link_to "New Comment",  new_comment_path(movie_id: @movie, review_id: @review) %></p>
 <div id="discussion">
   <%=render @movie.comments%>
 </div>
