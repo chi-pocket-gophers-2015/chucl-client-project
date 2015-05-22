@@ -4,9 +4,13 @@
   <h3>Synopsis: </h3>
   <p><%=@movie.synopsis%></p>
 </div>
+<h3>Discuss this Movie: </h3>
+<div id="discussion">
+  <%=render @movie.comments%>
+</div>
 <h3>Reviews: </h3>
 <div id="review_stubs">
-<%=render @movie.reviews%>
+  <%=render @movie.reviews%>
 </div>
 
 
