@@ -2,6 +2,17 @@ ul {
   list-style:none;
 }
 
+a {
+  color: #0000A0;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#movie-list {
+  font-size: 25px;
+}
 
 .movie-stub {
   padding: 5px;
@@ -18,7 +29,7 @@ ul {
 }
 
 #genres-list {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .best-of-list {

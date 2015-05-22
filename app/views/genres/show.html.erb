@@ -1,17 +1,33 @@
-<h2><%= @genre.name %></h2>
 
-<div class="genre-movies">
-  <h4>Movies</h4>
-  <ul>
-    <% @genre.movies.each do |movie| %>
-      <li>
-        <%= link_to(movie.title, movie_path(movie)) %>
-      </li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="best-of-box" id="top-movies-container">
+      <h2>Top Reviewed <%= @genre.name %> Movies</h2>
+      <ul class="best-of-list" id="a">
+        <%= render @top_genre_movies %>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div class="genre-reviews">
-  <h4>Top Reviews</h4>
-  <%= render @reviews %>
+<div class="row">
+  <div class="col-sm-4">
+    <h2><%= @genre.name %> Movies</h2>
+    <div class="genre-movies">
+      <ul>
+        <% @genre.movies.each do |movie| %>
+          <li id="movie-list">
+            <%= link_to(movie.title, movie_path(movie)) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+  <div class="genre-reviews">
+    <h2>Top Reviews for <%= @genre.name %> Movies </h2>
+    <%= render @reviews %>
+  </div>
+  </div>
 </div>

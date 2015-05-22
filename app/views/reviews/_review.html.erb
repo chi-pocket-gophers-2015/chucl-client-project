@@ -1,16 +1,22 @@
 <div class="review-stub">
-  <p>By: <%=review.user.username%></p>
-  <p>Movie: <%=link_to review.movie.title, movie_path(review.movie) %></p>
-  <p><%=link_to review.body, movie_review_path(review.movie, review) %></p>
-  <p>Review score: <%= review.points %></p>
-  <p><%=link_to "View Comments", movie_review_path(review.movie, review) %></p>
+
+  <h3><%=link_to "A review", movie_review_path(review.movie, review) %> for: <%=link_to review.movie.title, movie_path(review.movie) %></h3>
+  <p><%= review.body %> | By: <%=review.user.username%></p>
+  <p>Review score: <%=review.score%>/10</p>
+
+
   <% if logged_in? %>
     <p>Was this review helpful?</p>
     <p><%= render partial: 'votes/vote', locals: {movie: review.movie, review: review, vote: Vote.new} %></p>
   <% end %>
-  <p>Helpful Score: <%=review.score%>/10</p>
-  <h4>Comments:</h4>
-  <p><%= link_to "New Comment",  new_comment_path(movie_id: @movie, review_id: review) %></p>
-  <div id="comments_container"><%= render review.comments%></div>
+  <p>Helpful Score: <%= review.points %></p>
+
+
+  <div id="review-comments-header">
+    <p><%= link_to "Comment on this review",  new_comment_path(movie_id: @movie, review_id: review)%></p>
+    <p><%=link_to "See review comments", movie_review_path(review.movie, review) %></p>
+  </div>
+
 
 </div>
+

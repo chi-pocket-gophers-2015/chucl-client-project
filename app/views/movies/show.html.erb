@@ -1,6 +1,7 @@
 <div id="movie_details">
   <h1><%=@movie.title %></h1>
-  <p>Runtime: <%=@movie.runtime%></p>
+  <p>Runtime: <%=@movie.runtime%> | Aggregate Score: <%=@movie.aggregate_score %></p>
+
   <p>Genre:
     <%= link_to(@movie.genre.name, genre_path(@movie.genre)) %>
   </p>
