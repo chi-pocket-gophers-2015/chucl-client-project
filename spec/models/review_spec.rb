@@ -24,4 +24,11 @@ describe Review do
     expect(review.valid?).to eq(false)
   end
 
+  # describe "#set_movie_aggregate_score" do
+  #   it "updates the aggregate score of the movie of the review" do
+
+  #     expect{review.save!}.to change {movie.aggregate_score}
+  #   end
+  # end
+
 end
