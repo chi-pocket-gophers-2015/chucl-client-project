@@ -1,1 +1,17 @@
-HI
+<h2><%= @genre.name %></h2>
+
+<div class="genre-movies">
+  <h4>Movies</h4>
+  <ul>
+    <% @genre.movies.each do |movie| %>
+      <li>
+        <%= link_to(movie.title, movie_path(movie)) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="genre-reviews">
+  <h4>Top Reviews</h4>
+  <%= render @reviews %>
+</div>
