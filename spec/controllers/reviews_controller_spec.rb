@@ -15,12 +15,12 @@ describe ReviewsController do
     end
   end
 
-  describe "GET #new" do
-    it "creates a new review object" do
-      get :new, {movie_id: movie.to_param}
-      expect(assigns(:review)).to be_a(Review)
-    end
-  end
+  # describe "GET #new" do
+  #   it "creates a new review object" do
+  #     get :new, {movie_id: movie.to_param}
+  #     expect(assigns(:review)).to be_a(Review)
+  #   end
+  # end
 
   # describe "POST #create" do
 

@@ -1,5 +1,7 @@
 class VotesController < ApplicationController
 
+  before_action :authenticate_user, only: [:new, :create, :update]
+
   def new
     @review = Review.find_by(params[:review_id])
     @movie = Movie.find_by(params[:review_id])
