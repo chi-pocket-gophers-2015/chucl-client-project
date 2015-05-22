@@ -9,4 +9,9 @@ class Vote < ActiveRecord::Base
     self.voteable.set_points
   end
 
+
+  def update_users_rev
+
+  end
+
 end
