@@ -6,9 +6,11 @@ feature 'User Authentication Areas' do
   let!(:user) { User.create(name: "Jillo", username: "Jill", password: "password") }
   let!(:review) { user.reviews.create(score: 10, body: "BEST MOVIE EVAAAAAAR!!!!! I LOVE RICK MORANIS", movie: movie, points: 0) }
 
-  scenario "Goes away from review edit page when not logged in" do
-    visit movie_review_path(movie, review)
-    click_link('Edit Review')
-    expect(page).to have_content("Username")
-  end
+  # scenario "Goes away from review edit page when not logged in" do
+  #   visit movie_review_path(movie, review)
+  #   click_link('Edit Review')
+  #   expect(page).to have_content("Username")
+  # end
+
+
 end
