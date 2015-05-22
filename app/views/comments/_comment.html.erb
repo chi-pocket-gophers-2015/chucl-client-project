@@ -1,12 +1,9 @@
-<table>
-  <%= form_for [movie, review, post, comment] do |f| %>
-    <tr>
-      <td><%= f.label "Comment" %></td>
-      <td><%= f.text_area :body %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="comment">
+  <p class="comment_body"><%=comment.body%></p>
+  <h6>by: <%=link_to "#{comment.user.name}", user_path(comment.user)%> | <%= link_to "reply",  new_comment_path(movie_id: @movie, review_id: @review, comment_id: comment.id) %></h6>
+  <div class="nested_comments">
+    <%= render comment.comments %>
+  </div>
+</div>
+<!-- new_polymorphic_path([comment.commentable, comment]) -->
+<!-- [@movie, @review, comment], action: "new" -->
