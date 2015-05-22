@@ -1,6 +1,9 @@
 <div id="movie_details">
   <h1><%=@movie.title %></h1>
   <p>Runtime: <%=@movie.runtime%></p>
+  <p>Genre:
+    <%= link_to(@movie.genre.name, genre_path(@movie.genre)) %>
+  </p>
   <h3>Synopsis: </h3>
   <p><%=@movie.synopsis%></p>
 </div>
